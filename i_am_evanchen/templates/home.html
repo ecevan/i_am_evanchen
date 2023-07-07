@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <!-- Introduction -->
+  <section class="mh-100 border" id="intro">
+    <div class="container w-100 text-light bg-dark " id="introContainer">
+      <div class="intro-messages">
+        <div class="row align-items-end h-100">
+          <div class="col-2 text-end">
+            <h1>I </h1>
+          </div>
+          <div class="col-10 text-start">
+            <div class="intro_message_loop">
+              <h1>&nbspam Evan Chen</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container w-100 bg-light p-3 position-relative" id="chat-box">
+      <div class="container border" id="greeting-messages"></div>
+      <div class="container d-block h-30px mb-10 border" id="chat-messages">
+      </div>
+      <br>
+      <form onsubmit="return sendMessage();" id="message-form" >
+        <div class="row w-100 position-absolute bottom-0 mb-3" id="chat-box-form">
+          <div class="col-10">
+            <div class="content-section">
+                <fieldset class="form-group">
+                  <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" id="message-input" placeholder="" required>
+                  </div>
+                </fieldset>
+            </div>
+          </div>
+          <div class="col-2 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"></path>
+              </svg>
+              Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </section>
+  <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='chatbox.js') }}"></script>
+
+{% endblock content %}

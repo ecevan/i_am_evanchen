@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <script>
+        function sendMessage() {
+            console.log('Send button clicked');
+            var messageInput = document.getElementById('message-input');
+            var message = messageInput.value;
+            messageInput.value = '';
+
+            var chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML += '<p><strong>You:</strong> ' + message + '</p>';
+
+            $.ajax({
+                url: '/send',
+                type: 'POST',
+                data: {message: message},
+                success: function(response) {
+                    // Fetch updated chat messages after sending the user message
+                    console.log("hi")
+                }
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Display the server response in the chatbox
+                chatbox.innerHTML += '<p><strong>Chatbot:</strong> ' + data + '</p>';
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="message-input" placeholder="Type your message here" required>
+    <button onclick="sendMessage()">Send</button>
+</body>
+</html>
