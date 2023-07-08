@@ -24,7 +24,8 @@ function sendMessage() {
             { role: 'chatbot', msg: 'hi' }
         ];
 
-    chatMessagesContainer.innerHTML += '<div class="bubble right"><strong>You:</strong><span class="message"> ' + message + '</span></div>';
+    chatMessagesContainer.innerHTML += '<div class="container overflow-hidden">' + '<div class="bg-primary text-light bubble right cornered"><span class="message" style="opacity: 1;"> ' + message + '</span></div></div>';
+    chatMessagesContainer.innerHTML += '<div class="bubble left"><span class="message" style="opacity: 1;"> Loading... </span></div>';
 
     $.ajax({
         url: '/send',
@@ -34,7 +35,8 @@ function sendMessage() {
         success: function(response) {
             // Fetch updated chat messages after sending the user message
             console.log("ajax send");
-            chatMessagesContainer.innerHTML += '<p><strong>Chatbot:</strong> ' + response + '</p>';
+            chatMessagesContainer.removeChild(chatMessagesContainer.lastChild);
+            chatMessagesContainer.innerHTML += '<div class="bubble left cornered"><span class="message" style="opacity: 1;">' + response + '</span></div>';
         },
     })
 };

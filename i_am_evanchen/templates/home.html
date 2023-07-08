@@ -1,15 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-
   <!-- Introduction -->
-  <section class="mh-100 border" id="intro">
+  <section class="pb-10" id="intro">
     <div class="container w-100 text-light bg-dark " id="introContainer">
       <div class="intro-messages">
         <div class="row align-items-end h-100">
           <div class="col-2 text-end">
             <h1>I </h1>
           </div>
-          <div class="col-10 text-start">
+          <div class="col-10 text-start overflow-hidden">
             <div class="intro_message_loop">
               <h1>&nbspam Evan Chen</h1>
             </div>
@@ -18,9 +17,9 @@
       </div>
     </div>
     <hr>
-    <div class="container w-100 bg-light p-3 position-relative" id="chat-box">
-      <div class="container border" id="greeting-messages"></div>
-      <div class="container d-block h-30px mb-10 border" id="chat-messages">
+    <div class="container w-100 bg-light p-3 position-relative" id="chat-box" style="margin-bottom: 2em">
+      <div class="container" id="greeting-messages"></div>
+      <div class="container" id="chat-messages", style="margin-bottom: 2.1em">
       </div>
       <br>
       <form onsubmit="return sendMessage();" id="message-form" >

@@ -32,7 +32,7 @@ window.onload = function() {
     'Hi!',
     'Evan Chen here',
     'I\'m a data engineer with machine learning background',
-    'I\'m actively looking for a job.<br> You can contact me at <a href="mailto:edwinchen94@gmail.com">edwinchen94@gmail.com</a>',
+    'I\'m actively looking for a job.<br> You can contact me at <a href="mailto:ec.evan1994@gmail.com">ec.evan1994@gmail.com</a>',
     'Feel free to ask me any question in the text input below'
   ]
 
@@ -42,6 +42,7 @@ window.onload = function() {
     var loadingEl = document.createElement('span');
     bubbleEl.classList.add('bubble');
     bubbleEl.classList.add(position === 'right' ? 'right' : 'left');
+    bubbleEl.classList.add('cornered');
     messageEl.classList.add('message');
     loadingEl.classList.add('loading');
     messageEl.innerHTML = message;
@@ -123,7 +124,7 @@ window.onload = function() {
                 // Apply overflow-y: hidden after the animation is complete
                 chatBoxContainer.style.overflowY = 'hidden';
                 chatBoxContainer.style.minHeight = '400px';
-                chatBoxContainer.style.maxHeight = '100%';
+                chatBoxContainer.style.removeProperty('height')
             }
         }), 3000);
   }
